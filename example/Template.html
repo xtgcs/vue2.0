@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Template</title>
+    <script src="/assets/js/vue.js"></script>
+</head>
+<body>
+   <h1>Template三种写法</h1>
+   <hr>
+   <div id="app">
+       {{name}}
+   </div>
+
+   <template id="temp">
+       <h1 style="color: red;">我是template标签模板</h1>
+   </template>
+
+   <script type="x-template" id="temp2">
+       <h1 style="color: red;">我是script标签模板</h1>
+   </script>
+   <script type="text/javascript">
+    let Data={
+        name:'xtgcs'
+    };
+    let app = new Vue({
+        el:"#app",
+        data:Data,
+        template:"#temp2"
+//        template:`<h1 style="color: red;">我是选项模板</h1>`
+    });
+
+   </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue.extend.</title>
+    <script src="/assets/js/vue.js"></script>
+</head>
+<body>
+   <h1>vue.extend.</h1>
+   <hr>
+   <div id="app"></div>
+
+   <script type="text/javascript">
+   let authorExtend =  Vue.extend({
+        template:'<p><a  :href="authorUrl">{{authorName}}</a></p>',
+        data:function () {
+            return{
+                authorName:'xtgcs',
+                authorUrl:"http://www.baidu.com"
+            }
+        }
+    });
+     new authorExtend().$mount("#app")
+
+   </script>
+</body>
+</html>

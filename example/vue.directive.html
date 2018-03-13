@@ -3,29 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <title>vue.directive</title>
-    <script src="../assets/js/vue.js"></script>
+    <script src="/assets/js/vue.js"></script>
 </head>
 <body>
    <h1>vue.directive</h1>
    <hr>
    <div id="app">
-      <div>{{num}}</div>
+      <div v-Color="color">{{num}}</div>
       <button @click="add">添加</button>
    </div>
 
-   <script type="javascript">
+   <script type="text/javascript">
 
-     let app = new Vue({
-         el:'#app',
-         data:{
-            num:10
-         },
-         methods:{
-             add:function () {
-                  this.num++
-             }
-         }
-     })
+       Vue.directive('Color', function (el, binding) {
+           el.style = 'color:'+binding.value
+       });
+      new Vue({
+           el:'#app',
+          data:{
+               num:1,
+              color:'red'
+          },
+           methods:{
+               add:function(){
+                   this.num++;
+               }
+           }
+       });
+
    </script>
 </body>
 </html>

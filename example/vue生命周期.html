@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue生命周期</title>
+    <script src="/assets/js/vue.js"></script>
+</head>
+<body>
+   <h1>vue生命周期</h1>
+   <hr>
+   <div id="app">
+       {{count}}
+       <button @click="add">改变</button>
+
+   </div>
+
+   <script type="text/javascript">
+    let Data={
+       count:1
+    };
+    let app = new Vue({
+        el:"#app",
+        data:Data,
+        methods:{
+            add:function () {
+                this.count++
+            }
+        },
+        beforeCreate:function () {
+            console.log('在实例初始化之后，数据观测 (data observer) 和 event/watcher 事件配置之前被调用');
+        },
+
+        created:function () {
+            console.log('在实例创建完成后被立即调用');
+        },
+
+        beforeMount:function () {
+            console.log('在挂载开始之前被调用');
+        },
+        mounted:function () {
+            console.log('el 被新创建的 vm.$el 替换，并挂载到实例上去之后调用该钩子');
+        },
+        beforeUpdate:function () {
+            console.log('数据更新时调用');
+        },
+        updated:function () {
+            console.log('由于数据更改导致的虚拟 DOM 重新渲染和打补丁，在这之后会调用该钩子');
+        },
+        activated:function () {
+            console.log('keep-alive 组件激活时调用。');
+        },
+        deactivated:function () {
+            console.log('keep-alive 组件停用时调用。');
+        },
+        beforeDestroy:function () {
+            console.log('实例销毁之前调用');
+        },
+        destroyed:function () {
+            console.log('Vue 实例销毁后调用');
+        },
+
+
+    });
+
+   </script>
+</body>
+</html>

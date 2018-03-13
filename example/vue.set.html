@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue.set</title>
+    <script src="/assets/js/vue.js"></script>
+</head>
+<body>
+   <h1>vue.set</h1>
+   <hr>
+   <div id="app">
+       {{name}}
+   </div>
+
+   <button onclick="add()">改变</button>
+
+   <script type="text/javascript">
+    let Data={
+        name:'xtgcs'
+    };
+    let app = new Vue({
+        el:"#app",
+        data:Data
+    });
+   function add() {
+       Vue.set(Data,name,'格子')
+   }
+   </script>
+</body>
+</html>
