@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HelloWord</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+   <h1>HelloWord</h1>
+   <hr>
+   <div id="app">
+     {{msg}}
+   </div>
+
+   <script type="javascript">
+
+     let app = new Vue({
+         el:'#app',
+         data:{
+             msg:"Hello world!"
+         }
+     })
+   </script>
+</body>
+</html>

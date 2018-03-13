@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-for</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+  <h1>v-for</h1>
+  <hr>
+ <div id="app">
+     <ul>
+         <li v-for="item in sortItems">{{item}}</li>
+     </ul>
+     <hr>
+     <ul>
+         <li v-for="(item,index) in studens">{{index+1}}: {{item.name}}--{{item.age}}</li>
+     </ul>
+ </div>
+  <script>
+      new Vue({
+          el:"#app",
+          data:{
+              items:[100,20,3,4,5,6,7,8,9],
+              studens:[
+                  {name:'xtgcs',age:29},
+                  {name:'xtgcs2',age:39},
+                  {name:'xtgcs3',age:49},
+                  {name:'xtgcs4',age:59},
+                  {name:'xtgcs5',age:69},
+              ]
+          },
+          computed:{
+              sortItems:function () {
+                  return this.items.sort(sortNum);
+              }
+          }
+      });
+      function sortNum(a,b) {
+          return a-b;
+      }
+  </script>
+</body>
+</html>
