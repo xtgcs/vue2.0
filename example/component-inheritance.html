@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>component继承</title>
+    <script src="/assets/js/vue.js"></script>
+</head>
+<body>
+   <h1>component继承</h1>
+   <hr>
+   <div id="app">
+       <tian></tian>
+   </div>
+
+
+   <script type="text/javascript">
+       let city={
+           template:`<p style="color: red">gezi from shanxi</p>`,
+
+       };
+
+        let tianComponent={
+            template:`
+              <div>
+                <h1 style="color: red">tian from shanxi</h1>
+                <city></city>
+                 </div>
+                    `,
+            components:{
+                "city":city
+            }
+        };
+
+        let app = new Vue({
+            el:"#app",
+            data:{
+                message:'China'
+            },
+            components:{
+                'tian':tianComponent
+            }
+        });
+
+
+   </script>
+</body>
+</html>

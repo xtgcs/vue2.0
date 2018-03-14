@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue.methods</title>
+    <script src="/assets/js/vue.js"></script>
+</head>
+<body>
+   <h1>vue.methods</h1>
+   <hr>
+   <div id="app">
+     {{count}}
+       <p>
+           <button @click="add(10)">增加</button>
+           <button @click="reduce($event)">减少</button>
+           <btn @click.native="add(5)"></btn>
+       </p>
+   </div>
+   <button onclick="app.add(9)">添加</button>
+
+   <script type="text/javascript">
+       let btnComponent = {
+           template:`<button>组件添加事件绑定</button>`
+       };
+
+       let app = new Vue({
+           el:'#app',
+           data:{
+               count:1
+           },
+           methods:{
+               add:function (num) {
+                   this.count+=num
+               },
+               reduce:function (e) {
+                   console.log(e);
+                   this.count--
+               }
+           },
+           components:{
+               'btn':btnComponent
+           }
+       })
+
+   </script>
+</body>
+</html>

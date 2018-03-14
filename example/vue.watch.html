@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue.watch</title>
+    <script src="/assets/js/vue.js"></script>
+</head>
+<body>
+   <h1>vue.watch</h1>
+   <hr>
+   <div id="app">
+      <p>如果明天 {{weather}}</p>
+      <p>我就在家 {{plan}}</p>
+       <p>
+           <button @click="add()">晴天</button>
+           <button @click="reduce()">雨天</button>
+       </p>
+   </div>
+
+   <script type="text/javascript">
+
+       let app = new Vue({
+           el:'#app',
+           data:{
+               weather:'下雨',
+               plan:'学习'
+           },
+           methods:{
+               add:function () {
+                 this.weather='晴天'
+               },
+               reduce:function () {
+                   this.weather='下雨'
+               }
+           },
+//           watch:{
+//               weather:function (newVal,oldVal) {
+//                   if(newVal=='晴天'){
+//                       this.plan='游玩'
+//                   }else{
+//                       this.plan='学习'
+//                   }
+//               }
+//           }
+       });
+
+       app.$watch('weather',function (newVal,oldVal) {
+           if(newVal=='晴天'){
+               this.plan='游玩'
+           }else{
+               this.plan='学习'
+           }
+       })
+
+   </script>
+</body>
+</html>
